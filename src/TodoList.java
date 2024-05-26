@@ -22,8 +22,11 @@ public class TodoList {
     }
     public void remove(int number){
 
-        todoList.remove(number - 1); // to match indexes when delete
-
+        if (number > todoList.size() || number < 1){
+            System.out.println("Invalid index " + number);
+        }else {
+            todoList.remove(number - 1); // to match indexes when delete
+        }
     }
 
 }
