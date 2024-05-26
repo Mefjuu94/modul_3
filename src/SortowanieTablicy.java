@@ -6,6 +6,8 @@ public class SortowanieTablicy {
     int[] a = new int[10];
     int score = 0;
 
+    int[] testTab = {1,3,5};
+
     SortowanieTablicy(){
 
         System.out.println("zadanie 1");

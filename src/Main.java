@@ -47,6 +47,7 @@ public class Main {
         studentList.add(new Student(34,176,"Samanta","Kill"));
         studentList.add(new Student(32,187,"Walman","Kill"));
 
+
         for (Student student : studentList) {
             System.out.println(student);
         }
