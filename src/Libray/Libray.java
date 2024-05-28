@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Libray {
 
-    Map<Author, List<Book>> authorListMap = new HashMap<>();
+    private Map<Author, List<Book>> authorListMap = new HashMap<>();
 
     
     public void dzialaj(){
@@ -30,40 +30,50 @@ public class Libray {
     }
 
 
-    public void getBooksOfAuthor(String authorName){
+    public List<Book> getBooksOfAuthor(String authorName){
 
         for (Author key: authorListMap.keySet()){
             if (key.getName().equals(authorName)){
-                System.out.println("author found! His books:");
-                System.out.println(key.getBooks());
+                System.out.println("author found! Books:");
+                return key.getBooks();
             }
         }
-
+        return null;
     }
-    public void addBookToAuthor(String authorName, Book book){
+    public boolean addBookToAuthor(String authorName, Book book){
         for (Author key: authorListMap.keySet()){
             if (key.getName().equals(authorName)){
-                key.books.add(book);
+               return key.books.add(book);
             }
         }
+        return false;
     }
-    public void getAllAuthors(){
+
+    public Map<Author, List<Book>> getAllAuthors(){
         for (Author key: authorListMap.keySet()){
-            System.out.println(key);
+            System.out.println(key.getName());
         }
+        return Map.of();
     }
     public void getAllBooks(){
         for (Author key: authorListMap.keySet()){
             System.out.println(key.getBooks());
         }
     }
-    public void getAllBooksAndAuthors() {
-        System.out.println(authorListMap);
+
+    public List<Book> getAllBooksList(){
+        List<Book> bookList = new ArrayList<>();
+        for (Author key: authorListMap.keySet()){
+            bookList.addAll(key.getBooks());
+        }
+        return bookList;
+    }
+
+    public Map<Author, List<Book>> getAllBooksAndAuthors() {
+        return authorListMap;
 
     }
     public void addAuthor(Author author) {
         authorListMap.put(author,authorListMap.get(author));
     }
-
-
 }

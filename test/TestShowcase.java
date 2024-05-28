@@ -62,15 +62,15 @@ public class TestShowcase {
 
 
     @Test
-    public void checkStudentsListObjectsNotAssert(){
+    public void checkStudentsListObjectsNotAssert() {
 
         ArrayList<Student> studentList = new ArrayList<>();
-        studentList.add(new Student(29,180,"Mati","Orzel"));
-        studentList.add(new Student(23,160,"Adam","Bugdol"));
-        studentList.add(new Student(24,170,"Sam","Hedi"));
-        studentList.add(new Student(26,190,"Ben","Bob"));
-        studentList.add(new Student(34,176,"Samanta","Kill"));
-        studentList.add(new Student(32,187,"Walman","Kill"));
+        studentList.add(new Student(29, 180, "Mati", "Orzel"));
+        studentList.add(new Student(23, 160, "Adam", "Bugdol"));
+        studentList.add(new Student(24, 170, "Sam", "Hedi"));
+        studentList.add(new Student(26, 190, "Ben", "Bob"));
+        studentList.add(new Student(34, 176, "Samanta", "Kill"));
+        studentList.add(new Student(32, 187, "Walman", "Kill"));
 
         ArrayList<Student> allStudents = new ArrayList<>(studentList);
 
@@ -80,10 +80,5 @@ public class TestShowcase {
         studentList.equals(studentList);
 
         Assertions.assertNotEquals(new ArrayList[]{studentList}, new ArrayList[]{allStudents}); // sorted
-
     }
-
-
-
-
 }

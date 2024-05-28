@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import Libray.*;
 
@@ -54,7 +51,8 @@ public class Main {
         StudentsLastNameComparator studentsLastNameComparator = new StudentsLastNameComparator();
 
         studentList.sort(studentsLastNameComparator);
-        studentList.equals(studentList);
+        Collections.sort(studentList,studentsLastNameComparator);
+//        studentList.equals(studentList);
 
         System.out.println("-------students after sort:-------------");
 
@@ -69,7 +67,8 @@ public class Main {
 
         libray.dzialaj(); // test drive
 
-        libray.getBooksOfAuthor("Joanne Rowling"); // search books of JK ROWLING
+        //books of autor:
+        System.out.println(libray.getBooksOfAuthor("Joanne Rowling")); // search books of JK ROWLING
 
         ///////////////////////create author 2 and books /////////////////////////
         Author a2 = new Author("Nicholas Sparks",1965,"Criminal");
@@ -97,19 +96,19 @@ public class Main {
         Author a4 = new Author("Remigiusz Mróz",1987,"Criminal");
         Book b55 = new Book("Ekspozycja","Fantasy",474);
         libray.addBookToAuthor("Remigiusz Mróz",b55);
-        //add author by book automaticly
-
 
         ///////////////////////author 5/////////////////////////
         Author a5 = new Author("Stephen King",77,"Fantasy");
 
 
         System.out.println("--------authors: ");
-        libray.getAllAuthors(); // show all authors
+        System.out.println(libray.getAllAuthors()); // show all authors
+        System.out.println("--------all Books List: ");
+        System.out.println(libray.getAllBooksList());
         System.out.println("-------all books sorted:");
         libray.getAllBooks();
         System.out.println("--------all Books and Authors: ");
-        libray.getAllBooksAndAuthors();
+        System.out.println(libray.getAllBooksAndAuthors());
 
 
 
@@ -121,6 +120,9 @@ public class Main {
 //    Author a5 = new Author("Stephen King",77,"Fantasy");
          */
 
+        System.out.println("-------Password----------");
+
+        PasswordCase passwordCase = new PasswordCase("JakiesHaslo123^!");
 
     }
 }
