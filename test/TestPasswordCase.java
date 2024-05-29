@@ -1,37 +1,58 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestPasswordCase {
 
-    PasswordCase password = new PasswordCase("JakiesHaslo123^!");
+    PasswordCase password = new PasswordCase();
+    String pass = "JakiesHaslo123^!";
+    String wrongPass = "haaslo ";
 
     @Test
     public void hasGoodLength(){
-        assertTrue(password.getPassword().length() > 12);
+        assertTrue(password.hasGoodLength(pass));
     }
     @Test
     public void hasNoWhiteSpaces(){
-        assertFalse(password.getPassword().contains(" "));
+        assertFalse(password.hasNoWhiteSpaces(pass));
     }
     @Test
     public void hasNoRepetitions(){
-        Pattern pattern = Pattern.compile("(.)\\1");
-        assertFalse(pattern.matcher(password.getPassword()).find());
+        assertFalse(password.hasNoRepetitions(pass));
     }
     @Test
     public void hasNumbers(){
-        Pattern pattern = Pattern.compile("\\d");
-        assertTrue(pattern.matcher(password.getPassword()).find());
+        assertTrue(password.hasNumbers(pass));
     }
     @Test
     public void hasSpecialCharacter() {
-        Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
-        assertTrue(pattern.matcher(password.getPassword()).find());
+        assertTrue(password.hasSpecialCharacter(pass));
     }
+
+    //Bad Case
+
+    @Test
+    public void hasBadLength(){
+        assertFalse(password.hasGoodLength(wrongPass));
+    }
+    @Test
+    public void hasWhiteSpaces(){
+        assertFalse(password.hasNoWhiteSpaces(wrongPass));
+    }
+    @Test
+    public void hasRepetitions(){
+        assertTrue(password.hasNoRepetitions(wrongPass));
+    }
+    @Test
+    public void dontHaveNumbers(){
+        assertFalse(password.hasNumbers(wrongPass));
+    }
+    @Test
+    public void hasNoSpecialCharacter() {
+        assertFalse(password.hasSpecialCharacter(wrongPass));
+    }
+
+    
 
 }

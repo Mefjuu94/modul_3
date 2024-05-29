@@ -105,8 +105,6 @@ public class Main {
         System.out.println(libray.getAllAuthors()); // show all authors
         System.out.println("--------all Books List: ");
         System.out.println(libray.getAllBooksList());
-        System.out.println("-------all books sorted:");
-        libray.getAllBooks();
         System.out.println("--------all Books and Authors: ");
         System.out.println(libray.getAllBooksAndAuthors());
 
@@ -120,9 +118,6 @@ public class Main {
 //    Author a5 = new Author("Stephen King",77,"Fantasy");
          */
 
-        System.out.println("-------Password----------");
-
-        PasswordCase passwordCase = new PasswordCase("JakiesHaslo123^!");
 
     }
 }
