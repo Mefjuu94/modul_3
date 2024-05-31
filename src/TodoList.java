@@ -8,10 +8,12 @@ public class TodoList {
 
     }
 
-    public void add(String task){
-
-        todoList.add(task);
-
+    public boolean add(String task){
+        if (todoList.contains(task)){
+            return false;
+        }else {
+            return todoList.add(task);
+        }
     }
     public void print(){
 
@@ -20,12 +22,14 @@ public class TodoList {
         }
 
     }
-    public void remove(int number){
+    public boolean remove(int number){
 
         if (number > todoList.size() || number < 1){
             System.out.println("Invalid index " + number);
+            return false;
         }else {
             todoList.remove(number - 1); // to match indexes when delete
+            return true;
         }
     }
 

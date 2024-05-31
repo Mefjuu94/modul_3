@@ -33,6 +33,8 @@ public class Main {
 
         CountWordsInText countWordsInText = new CountWordsInText();
         System.out.println(countWordsInText.countWords(countWordsInText.text));
+        String testString = "test text is a test text, nothing can Happen. This should pass.";
+        System.out.println(countWordsInText.countWords(testString));
 
         System.out.println("-------students -------------");
 
@@ -107,16 +109,6 @@ public class Main {
         System.out.println(libray.getAllBooksList());
         System.out.println("--------all Books and Authors: ");
         System.out.println(libray.getAllBooksAndAuthors());
-
-
-
-        /* ściąga
-
-      //    Author a2 = new Author("Nicholas Sparks",59,"Criminal");
-//    Author a3 = new Author("JGeorge R.R. Martin",76,"Fantasy");
-//    Author a4 = new Author("Remigiusz Mróz",37,"Criminal");
-//    Author a5 = new Author("Stephen King",77,"Fantasy");
-         */
 
 
     }

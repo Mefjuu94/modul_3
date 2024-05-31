@@ -1,6 +1,6 @@
-import Libray.Libray;
 import Libray.Author;
 import Libray.Book;
+import Libray.Libray;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -58,10 +58,76 @@ public class TestLibrayCase {
 
     @Test
     public void testAddAuthor() {
+        Assertions.assertTrue(libray.addAuthor(a3));
+    }
+
+    @Test
+    public void testGetAuthor(){
+        Author a4 = new Author("Test men again Loco",1987,"Drama");
+        libray.authorListMap.put(a4,new ArrayList<>());
+
+        Assertions.assertNotNull(a4);
+        // Sprawdzenie, czy obiekt jest instance klasy Autor
+        Assertions.assertTrue(true);
+    }
+
+
+    //bad way
+
+    @Test
+    public void testGetBooksOfAuthorWrong() {
+        Author author = new Author("autor",1994,"Fantasy");
+
+        Assertions.assertNotEquals(author,libray.getAuthor("autor"));
+    }
+
+    @Test
+    public void testAddBookToAuthorWrong(){
+        Assertions.assertFalse(libray.addBookToAuthor(a1.getName(), b1));
+    }
+
+    @Test
+    public void testGetAllAuthorsWrong(){
+        libray.addAuthor(a2);
+        libray.addAuthor(a1);
+        Set<Author> authorSet = new HashSet<>();
+        authorSet.add(a1);
+
+        Assertions.assertNotEquals(authorSet.toArray(),libray.getAllAuthors().toArray());
+    }
+
+
+    @Test
+    public void testGetAllBooksAndAuthorsWrong(){
+        List<Book> b1List = new ArrayList<>();
+        b1List.add(b1);
+        List<Book> b2List = new ArrayList<>();
+        b1List.add(b2);
+        Map<Author, List<Book>> authorSet = new HashMap<>();
+
+
+        libray.authorListMap.put(a1,b1List);
+        libray.authorListMap.put(a2,b2List);
+
+        Assertions.assertNotEquals(authorSet,libray.getAllBooksAndAuthors());
+    }
+
+
+
+    @Test
+    public void testAddAuthorWrong() {
         libray.addAuthor(a3);
-        Map<Author,List<Book>> testSet = new HashMap<>();
-        testSet.put(a3,new ArrayList<Book>());
-        Assertions.assertEquals(testSet.get(a3),libray.getAuthor(a3.getName()));
+        Assertions.assertFalse(libray.addAuthor(a3));
+    }
+
+    @Test
+    public void testGetAuthorWrong(){
+        Author a4 = new Author("Test men again Loco",1987,"Drama");
+        libray.authorListMap.put(a4,new ArrayList<>());
+
+        Assertions.assertNull(null);
+        // Sprawdzenie, czy obiekt jest instance klasy Autor
+        Assertions.assertFalse(false);
     }
 
 
