@@ -11,12 +11,12 @@ public class TestToDoList {
     }
 
     @Test
-    public void CantAddTaskToToDoList(){
+    public void cantAddTaskToToDoList(){
         todoList.add("test again");
         Assertions.assertFalse(todoList.add("test again"));
     }
     @Test
-    public void RemoveTaskFromToDoList(){
+    public void removeTaskFromToDoList(){
         todoList.add("test");
         todoList.add("test again");
         todoList.add("repeat test again");
@@ -25,7 +25,7 @@ public class TestToDoList {
     }
 
     @Test
-    public void CantRemoveTaskFromToDoList(){
+    public void cantRemoveTaskFromToDoList(){
         todoList.add("test");
         todoList.add("test again");
         todoList.add("repeat test again");

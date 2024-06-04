@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Libray {
 
-    public Map<Author, List<Book>> authorListMap = new HashMap<>();
+    private Map<Author, List<Book>> authorListMap = new HashMap<>();
 
     public void dzialaj() {
 

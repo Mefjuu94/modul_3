@@ -43,27 +43,27 @@ public class CountWordsInText {
             "in tortor.";
 
 
-    CountWordsInText(){
+    public HashMap<String, Integer> countWords(String text) {
 
-    }
+        if (text != null) {
+            HashMap<String, Integer> wordsMap = new HashMap<>();
 
-    public HashMap<String, Integer> countWords(String text){
+            text = text.replace(",", "").replace(".", "");
+            text = text.toLowerCase(Locale.ROOT);
+            String[] split = text.split("\\s+");
+            for (String s : split) {
 
-        HashMap<String,Integer> wordsMap = new HashMap<>();
-
-        text = text.replace(",", "").replace(".", "");
-        text = text.toLowerCase(Locale.ROOT);
-        String[] split = text.split("\\s+");
-        for (String s : split) {
-
-            if (wordsMap.containsKey(s)){
-                int count = wordsMap.get(s);
-                wordsMap.replace(s,count+1);
-            }else {
-                wordsMap.put(s, 1);
+                if (wordsMap.containsKey(s)) {
+                    int count = wordsMap.get(s);
+                    wordsMap.replace(s, count + 1);
+                } else {
+                    wordsMap.put(s, 1);
+                }
             }
+            return wordsMap;
+        }else {
+            return new HashMap<>();
         }
-        return wordsMap;
     }
 
 

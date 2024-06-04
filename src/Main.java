@@ -111,5 +111,10 @@ public class Main {
         System.out.println(libray.getAllBooksAndAuthors());
 
 
+        countWordsInText.countWords("  " +
+                "");
+
+
+
     }
 }
